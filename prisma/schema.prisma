@@ -2,8 +2,8 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 datasource db {
-  provider          = "mongodb"
-  url               = env("DATABASE_URL")
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
 }
 
 generator client {
@@ -48,6 +48,7 @@ model User {
   passwordResetTokenExp DateTime?
   accounts              Account[]
   sessions              Session[]
+  role                  String    @default("user")
 }
 
 model VerificationToken {
@@ -56,4 +57,23 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model TestProduct {
+  id            String   @id @default(cuid()) @map("_id") @db.ObjectId
+  defaultImage  String
+  images        String[]
+  title         String
+  slogan        String
+  description   String
+  category      String
+  category_type String
+  city          String?
+  address       String?
+  tags          String[]
+  rating        Int?
+  contact       Int?
+  price         Int?
+  isFeatured    Boolean
+  isActivated   Boolean
 }

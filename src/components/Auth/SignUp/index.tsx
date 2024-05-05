@@ -3,15 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import SocialSignIn from "../SocialSignIn";
-import SwitchOption from "../SwitchOption";
 import { useState } from "react";
-import MagicLink from "../MagicLink";
 import Loader from "@/components/Common/Loader";
 
 const SignUp = () => {
   const router = useRouter();
-  const [isPassword, setIsPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e: any) => {

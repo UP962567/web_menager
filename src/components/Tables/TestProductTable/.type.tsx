@@ -1,0 +1,25 @@
+export type Column = {
+  id: string;
+  defaultImage: string;
+  images: string[];
+  title: string;
+  slogan: string;
+  description: string;
+  category: string;
+  category_type: string;
+  city: string | null;
+  address: string | null;
+  tags: string[];
+  rating: number | null;
+  contact: number | null;
+  price: number | null;
+  isFeatured: boolean;
+  isActivated: boolean;
+  image: string;
+  name: string | null;
+  email: string | null;
+  emailVerified: Date | null;
+  password: string | null;
+  passwordResetToken: string | null;
+  passwordResetTokenExp: Date | null;
+};

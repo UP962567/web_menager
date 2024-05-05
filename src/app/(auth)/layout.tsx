@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 import PreLoader from "@/components/Common/PreLoader";
 import { redirect } from "next/navigation";
 import { NavBar } from "@/components/Navbar";
-import { prisma } from "@/utils/prismaDB";
 
 export default function RootLayout({
   children,
@@ -30,19 +29,9 @@ export default function RootLayout({
 
   if (status === "loading") {
     return <PreLoader />;
-  } else if (status === "unauthenticated") {
-    redirect("/signin");
+  } else if (status === "authenticated") {
+    redirect("/");
   }
-
-  // prisma.user.findUnique({
-  //   where: {
-  //     email: session?.user?.email !== null ? session?.user?.email : undefined,
-  //   },
-  // }).then((data) => {
-  //   if (data?.role !== "admin") {
-  //     redirect("/noAccess");
-  //   }
-  // })
 
 
   return (
@@ -58,8 +47,6 @@ export default function RootLayout({
             enableSystem={false}
             defaultTheme="light"
           >
-            <NavBar />
-
             {children}
           </ThemeProvider>
         </SessionProvider>
