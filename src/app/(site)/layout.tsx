@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 import PreLoader from "@/components/Common/PreLoader";
 import { redirect } from "next/navigation";
 import { NavBar } from "@/components/Navbar";
-import { prisma } from "@/utils/prismaDB";
 
 export default function RootLayout({
   children,
