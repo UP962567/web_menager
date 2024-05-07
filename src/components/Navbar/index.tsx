@@ -24,25 +24,37 @@ import {
   ChevronRightIcon,
 } from '@radix-ui/react-icons';
 
-// import {
-//   DropdownMenu,
-//   DropdownMenuContent,
-//   DropdownMenuItem,
-//   DropdownMenuLabel,
-//   DropdownMenuSeparator,
-//   DropdownMenuTrigger,
-// } from "@/components/ui/dropdown-menu"
-
 import { useState } from 'react';
 import { signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
+import { set } from 'zod';
+import PreLoader from '../Common/PreLoader';
 
 export function NavBar() {
   const { data: session, status } = useSession()
 
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [expires, setExpires] = useState('');
+
   const [bookmarksChecked, setBookmarksChecked] = useState(true);
   const [urlsChecked, setUrlsChecked] = useState(false);
   const [person, setPerson] = useState('pedro');
+
+  if(name === "" || email === "" || expires === "" && session !== undefined && session !== null) {
+    <PreLoader />
+    setName(session?.user?.name || "");
+    setEmail(session?.user?.email || "");
+    setExpires(session ? new Date(session.expires).toLocaleString('en-GB', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+    }) : "");
+  }
+
   return (
     <Menubar className="justify-between item-start">
       <div className="flex">
