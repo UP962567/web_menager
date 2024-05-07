@@ -1,11 +1,10 @@
 
 import { Tabs as TabsComponent, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import DataTable from '@/components/Tables/UserTable';
-import { Button } from "@/components/ui/button";
 
 export function Tabs() {
   return (
-    <TabsComponent defaultValue="main" className="item-center justify-center h-full mr-4 ml-4 mt-4">
+    <TabsComponent defaultValue="users" className="item-center justify-center h-full mr-4 ml-4 mt-4">
       <TabsList>
         <TabsTrigger value="users">Users</TabsTrigger>
         <TabsTrigger value="create">Create</TabsTrigger>

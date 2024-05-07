@@ -60,9 +60,10 @@ model VerificationToken {
 }
 
 model TestProduct {
-  id            String   @id @default(cuid()) @map("_id") @db.ObjectId
+  id            String   @id @default(cuid()) @map("_id")
   defaultImage  String
   images        String[]
+  imageId       String
   title         String
   slogan        String
   description   String

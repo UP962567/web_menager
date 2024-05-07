@@ -6,6 +6,7 @@ export async function POST(request: any) {
   const body = await request.json();
   const {
     defaultImage,
+    imageId,
     images,
     title,
     slogan,
@@ -22,16 +23,26 @@ export async function POST(request: any) {
     isActivated,
   } = body;
 
-  // if (!defaultImage || !images || !title || !slogan || !description || !category || !category_type || !city || !address || !tags || !rating || !contact || !price || !isFeatured || !isActivated) {
-  //   return NextResponse.json("Missing Fields", { status: 400 });
-  // }
+  let isFeaturedT = false;
+  let isActivatedT = false;
+  if (isFeatured === "on") {
+    isFeaturedT = true;
+  } else {
+    isFeaturedT = false;
+  }
 
+  if (isActivated === "on") {
+    isActivatedT = true;
+  } else {
+    isActivatedT = false;
+  }
 
   await prisma.testProduct.create({
     data: {
       defaultImage,
       images,
       title,
+      imageId,
       slogan,
       description,
       category,
@@ -39,11 +50,11 @@ export async function POST(request: any) {
       city,
       address,
       tags,
-      rating,
-      contact,
-      price,
-      isFeatured,
-      isActivated,
+      rating: Number(rating),
+      contact: Number(contact),
+      price: Number(price),
+      isFeatured: isFeaturedT,
+      isActivated: isActivatedT,
     },
   });
 

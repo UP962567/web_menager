@@ -8,6 +8,8 @@ import ToasterContext from "./api/contex/ToasetContex";
 import { useEffect, useState } from "react";
 import PreLoader from "@/components/Common/PreLoader";
 import { redirect } from "next/navigation";
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function RootLayout({
   children,
@@ -40,6 +42,8 @@ export default function RootLayout({
             >
               <ToasterContext />
               {children}
+              <SpeedInsights />
+              <Analytics />
             </ThemeProvider>
           </SessionProvider>
         )}

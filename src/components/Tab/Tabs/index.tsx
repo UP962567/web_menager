@@ -1,7 +1,6 @@
 
 import { Tabs as TabsComponent, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import DataTable from '@/components/Tables/TestTable';
-import { Button } from "@/components/ui/button";
 
 export function Tabs() {
   return (

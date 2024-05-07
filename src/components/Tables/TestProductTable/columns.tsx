@@ -7,10 +7,10 @@ import Image from "next/image"
 export type Column = {
   id: string;
   defaultImage: string;
-  images: string[];
   title: string;
   slogan: string;
   description: string;
+  imageId: string;
   category: string;
   category_type: string;
   city: string | null;
@@ -34,7 +34,7 @@ export const columns: ColumnDef<Column>[] = [
     )
   },
   { accessorKey: "id", header: "ID" },
-  { accessorKey: "images", header: "Images" },
+  { accessorKey: "imageId", header: "Image ID" },
   { accessorKey: "title", header: "Title" },
   { accessorKey: "slogan", header: "Slogan" },
   { accessorKey: "description", header: "Description" },

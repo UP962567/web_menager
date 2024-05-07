@@ -34,17 +34,6 @@ export default function RootLayout({
     redirect("/signin");
   }
 
-  // prisma.user.findUnique({
-  //   where: {
-  //     email: session?.user?.email !== null ? session?.user?.email : undefined,
-  //   },
-  // }).then((data) => {
-  //   if (data?.role !== "admin") {
-  //     redirect("/noAccess");
-  //   }
-  // })
-
-
   return (
 
 
