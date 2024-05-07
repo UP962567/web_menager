@@ -1,8 +1,6 @@
 "use client";
 import SignUp from "@/components/Auth/SignUp";
-import Breadcrumb from "@/components/Common/Breadcrumb";
 import PreLoader from "@/components/Common/PreLoader";
-import { Metadata } from "next";
 import { useSession } from "next-auth/react";
 import { useRouter } from 'next/navigation';
 
