@@ -4,6 +4,7 @@ import PreLoader from "@/components/Common/PreLoader";
 import { Metadata } from "next";
 import { redirect } from "next/dist/server/api-utils";
 import { SessionProvider, useSession } from "next-auth/react";
+import { useRouter } from 'next/navigation';
 
 export const metadata: Metadata = {
   title:
@@ -11,6 +12,17 @@ export const metadata: Metadata = {
 };
 
 const SigninPage = () => {
+
+  const { data: session, status } = useSession()
+  const router = useRouter();
+
+  if (status === "loading") {
+    return <PreLoader />;
+  } else if (status === "authenticated") {
+    router.push("/");
+  }
+
+
   return (
     <>
       <Signin />

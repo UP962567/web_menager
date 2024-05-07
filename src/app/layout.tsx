@@ -11,6 +11,8 @@ import { redirect } from "next/navigation";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
 
+
+
 export default function RootLayout({
   children,
 }: {
@@ -21,6 +23,8 @@ export default function RootLayout({
   useEffect(() => {
     setTimeout(() => setLoading(false), 1000);
   }, []);
+
+
 
   return (
     <html suppressHydrationWarning={true} className="!scroll-smooth" lang="en">

@@ -7,7 +7,6 @@ import "../../styles/prism-vsc-dark-plus.css";
 import { useEffect, useState } from "react";
 import PreLoader from "@/components/Common/PreLoader";
 import { redirect } from "next/navigation";
-import { NavBar } from "@/components/Navbar";
 
 export default function RootLayout({
   children,
@@ -33,9 +32,9 @@ export default function RootLayout({
     redirect("/");
   }
 
+  console.log(status)
 
   return (
-
 
     <div>
       {loading ? (
