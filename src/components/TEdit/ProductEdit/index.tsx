@@ -433,7 +433,7 @@ export const ProductEdit: React.FC<ProductFormProps> = ({
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/get/products');
+        const response = await fetch(`/${process.env.NEXT_PUBLIC_API_URL}/get/products`);
         if (!response.ok) {
           throw new Error('Network response was not ok.');
         }
