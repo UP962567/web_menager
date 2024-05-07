@@ -15,23 +15,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const [loading, setLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 1000);
-  }, []);
-
-  useEffect(() => {
-
-    setTimeout(() => setLoading(false), 1000);
-  }, []);
-
   const { data: session, status } = useSession()
 
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 1000);
+  }, []);
+
+  
   if (status === "loading") {
     return <PreLoader />;
   } else if (status === "unauthenticated") {
     redirect("/signin");
   }
+
 
   return (
 

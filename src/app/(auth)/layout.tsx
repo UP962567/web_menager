@@ -19,11 +19,6 @@ export default function RootLayout({
     setTimeout(() => setLoading(false), 1000);
   }, []);
 
-  useEffect(() => {
-
-    setTimeout(() => setLoading(false), 1000);
-  }, []);
-
   const { data: session, status } = useSession()
 
   if (status === "loading") {

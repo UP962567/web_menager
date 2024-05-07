@@ -40,21 +40,7 @@ export function NavBar() {
   const [bookmarksChecked, setBookmarksChecked] = useState(true);
   const [urlsChecked, setUrlsChecked] = useState(false);
   const [person, setPerson] = useState('pedro');
-
-  if(name === "" || email === "" || expires === "" && session !== undefined && session !== null) {
-    <PreLoader />
-    setName(session?.user?.name || "");
-    setEmail(session?.user?.email || "");
-    setExpires(session ? new Date(session.expires).toLocaleString('en-GB', {
-      day: '2-digit',
-      month: 'short',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-    }) : "");
-  }
-
+  
   return (
     <Menubar className="justify-between item-start">
       <div className="flex">
